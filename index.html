@@ -1,0 +1,173 @@
+<!--웹폰트-->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Noto+Sans&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.js">
+    </script>
+
+    <title>Header</title>
+</head>
+<body>  
+    <header id="header">
+        <h1 class = "navbar__logo" style="width: 4.8rem;"><a href="#a"><img src="/companylogo.svg" alt= "peterspantry"></a></h1>
+            <ul class = "navbar__topicon">
+                <li class = "like"><a href="#a"><img src = "like.svg"></a></li>
+                <li class = "bag"><a href="#a"><img src = "bag.svg"></a></li>
+                <li class = "login"><a href="#a"><img src = "login.svg"></a></li>
+            </ul>
+            <div class = "btn"><img src ="hamb.svg" width="18px" height="16"></img></div>
+            <div class = "navbar">
+                <nav class = nav>
+                <ul class = "navbar__mainmenu" style="color: #484847;">
+                    <li><a href="#a">Kitchen Scale</a></li>
+                    <li><a href="#a">Kitchen Timer</a></li>
+                    <li id="lfr">Line Friends
+                        <ul class = "navbar__linefriends">
+                            <li><a href="#a">Braun</a></li>
+                            <li><a href="#a">Sally</a></li>
+                        </ul>
+                    </li>
+                    <li id="us">About Us 
+                        <ul class = "navbar__manu_aboutus">
+                            <li><a id="bs" href="#a">Brand Story</a></li>
+                            <li><a href="#a">Awards</a></li>
+                            <li><a href="#a">Contact Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+    </header>
+                
+    <div id="menu">
+    <div onclick="history.back();" class="close"><img src = "close.svg"></div>
+        
+    <div class = "slide__icons">
+        <li><a href="#a">like </a></li>
+        <li><a href="#a">login </a></li>
+        <li><a href="#a">bag</a></li>
+    </div>
+    <div class = "slide__icons_2nd">
+        <li><a href="#a">delivery</a></li>
+        <li><a href="#a">tracking</a></li>
+    </div>
+
+    <ul class = "slide__mainmenu" id="sm">
+        <li><a href="#a">Kitchen Scale</a></li>
+        <li><a href="#a">Kitchen Timer</a></li>
+        <li clss="line" id="lf">Line Friends
+            <div class="plus" id="plus-1">
+                <span class="line" id="lin"></span>
+                <span class="line" id="lin1"></span>
+            </div> 
+        <ul class = "slide__linefriends">
+            <li><a href="#a">Braun</a></li>
+            <li><a href="#a">Sally</a></li>
+        </ul>
+        </li>
+        <li class="about" id="au">About Us
+            <div class="mi" id="min">
+                <span class="line" id="lin"></span>
+                <span class="line" id="lin1"></span>
+            </div> 
+        <ul class = "slide__manu_aboutus">
+            <li><a href="#a">Brand Story</a></li>
+            <li><a href="#a">Awards</a></li>
+            <li><a href="#a">Contact Us</a></li>
+        </ul>
+        </li>        
+    </ul>
+
+    <div class = "slide__icons_bottom">
+        <li><a href="#a">review </a></li>
+        <li><a href="#a">FAQ</a></li>
+        <li><a href="#a">AS</a></li>
+    </div>
+    <div class = "slide__icons_bottom_2nd">
+        <li><a href="#a">Customer Service Center</a></li>
+    </div>
+
+
+    <div class = "social">
+        <li><a id="instagram" href="#a"><img src = "insta.svg" style="width: 26px" height="26px"></a></li>
+        <li><a id="facebook" href="#a"><img src = "facebook.svg" style="width: 26px" height="26px"></a></li>
+        <li><a id="youtube" href="#a"><img src = "youtube.svg" style="width: 26px" height="26px"></a></li>
+    </div>
+    <div>
+        <a class="searchbar"></a>
+    </div>
+    <div class="company_info" style="font-size: 12px;">
+        <p>Address : 1023, 14, LS-ro, Dongan-gu, <br>
+            Anyang-si, Gyeonggi-do, Republic of Korea<br>
+            TEL : 070 7757 2115<br> E-MAIL : brand@peterspantry.co.kr<br>
+            © PetersPantry 2021 All Rights Reserved.<br>
+        </p>
+    </div>
+    </div>
+    </nav>
+
+
+
+    <div onclick="history.back();" class="page_cover"></div>
+<style>
+
+</style>
+
+<script>
+$(".btn").click(function() {
+  $("#menu,.page_cover,html").addClass("open");
+  window.location.hash = "#open";
+});
+
+window.onhashchange = function() {
+  if (location.hash != "#open") {
+    $("#menu,.page_cover,html").removeClass("open");
+  }
+};
+
+$('#menu > ul > li').click(function() {
+    if ( $(this).hasClass('active') ) {
+        $(this).find(' > ul').stop().slideUp(300);
+        $(this).removeClass('active');
+    }
+    else {
+        $(this).find(' > ul').stop().slideDown(300);
+        $(this).addClass('active');
+        $(".plus").addClass(":before");
+
+    }
+});
+$(document).ready(function(){
+  $('#lf').click(function(){
+    $(".plus").toggleClass("is-active");
+    $(this).find('plus').css('transform','rotate(90deg)');
+  });
+});
+$(document).ready(function(){
+  $('#au').click(function(){
+    $("#min").toggleClass("is-active");
+    $(this).find('min').css('transform','rotate(90deg)');
+  });
+});
+
+
+$(document).ready(function(){
+    $(".about",".line").click(function(){
+        $(".plus").toggleClass("is-active");
+        $(this).find('plus').css('transform','rotate(90deg)');
+    });
+});
+// transform: translate(-100vw)
+
+</script>
+
+</body style="margin:0">
+
+</html>
